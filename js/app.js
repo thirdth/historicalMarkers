@@ -51,7 +51,6 @@ function initMap()  {
   var defaultIcon = makeMarkerIcon('0091ff');
 
   // The following loop uses the location array to create an array of markers on initialize.
-  //for (var i = 0; i < locations.length; i++) {
   locations.forEach(function(location)  {
     // Get the position, title, type and number from the location array.
     var position = location.location;
