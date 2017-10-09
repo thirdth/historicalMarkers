@@ -42,7 +42,7 @@ function initMap()  {
   // Constructor creates a new map with a center on Nashville, TN.
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 36.1627, lng: -86.7816},
-    zoom: 13,
+    zoom: 13
   });
 
   largeInfoWindow = new google.maps.InfoWindow();
@@ -70,13 +70,11 @@ function initMap()  {
     markers.push(marker);
     // Create an onclick event to open the large infowindow at each marker.
     marker.addListener("click", function() {
-      var newMarker = this;
-      populateInfoWindow(newMarker, largeInfoWindow);
+      populateInfoWindow(this, largeInfoWindow);
     });
     // Create an onclick event to animate the marker
     marker.addListener("click", function() {
-      var newThing = this;
-      newThing.setAnimation(google.maps.Animation.BOUNCE);
+      this.setAnimation(google.maps.Animation.BOUNCE);
     });
   });
 
@@ -149,8 +147,8 @@ function populateInfoWindow(marker, infowindow) {
               nearStreetViewLocation, marker.position);
               infowindow.setContent('<div class="windowBox">' +
                                       '<div class="title">' +
-                                      marker.title + '</div><div id="pano">\
-                                      </div>' + marker.content + '</div>');
+                                      marker.title + '</div><div id="pano">' +
+                                      '</div>' + marker.content + '</div>');
                 var panoramaOptions = {
                   position: nearStreetViewLocation,
                   pov: {
