@@ -1,4 +1,3 @@
-
 var map;
 
 var markers = ko.observableArray([]);
@@ -52,12 +51,13 @@ function initMap()  {
   var defaultIcon = makeMarkerIcon('0091ff');
 
   // The following loop uses the location array to create an array of markers on initialize.
-  for (var i = 0; i < locations.length; i++) {
+  //for (var i = 0; i < locations.length; i++) {
+  locations.forEach(function(location)  {
     // Get the position, title, type and number from the location array.
-    var position = locations[i].location;
-    var title = locations[i].title;
-    var type = locations[i].type;
-    var number = locations[i].number;
+    var position = location.location;
+    var title = location.title;
+    var type = location.type;
+    var number = location.number;
     // Create a marker per location, and put into markers array.
     var marker = new google.maps.Marker({
       position: position,
@@ -70,14 +70,16 @@ function initMap()  {
     // Push the marker to our array of markers.
     markers.push(marker);
     // Create an onclick event to open the large infowindow at each marker.
-    marker.addListener('click', function() {
-      populateInfoWindow(this, largeInfoWindow);
+    marker.addListener("click", function() {
+      var newMarker = this;
+      populateInfoWindow(newMarker, largeInfoWindow);
     });
     // Create an onclick event to animate the marker
-    marker.addListener('click', function() {
-      this.setAnimation(google.maps.Animation.BOUNCE);
+    marker.addListener("click", function() {
+      var newThing = this;
+      newThing.setAnimation(google.maps.Animation.BOUNCE);
     });
-  }
+  });
 
   renderMarkers();
 
@@ -146,9 +148,10 @@ function populateInfoWindow(marker, infowindow) {
             var nearStreetViewLocation = data.location.latLng;
             var heading = google.maps.geometry.spherical.computeHeading(
               nearStreetViewLocation, marker.position);
-              infowindow.setContent('<div class="windowBox"><div class="title">' +
-                                    marker.title + '</div><div id="pano">\
-                                    </div>' + marker.content + '</div>');
+              infowindow.setContent('<div class="windowBox">' +
+                                      '<div class="title">' +
+                                      marker.title + '</div><div id="pano">\
+                                      </div>' + marker.content + '</div>');
                 var panoramaOptions = {
                   position: nearStreetViewLocation,
                   pov: {
@@ -159,7 +162,8 @@ function populateInfoWindow(marker, infowindow) {
             var panorama = new google.maps.StreetViewPanorama(
               document.getElementById('pano'), panoramaOptions);
           } else {
-            infowindow.setContent('<div class="windowBox"><div>' + marker.title +
+            infowindow.setContent('<div class="windowBox"><div>' +
+                                  marker.title +
                                   '</div><div>No Street View Found</div>' +
                                   marker.content + '</div>');
           }
