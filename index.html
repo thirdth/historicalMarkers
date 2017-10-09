@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <section class="container-fluid">
+      <div class="row">
+        <div  data-bind="click: toggleMenu" class="toggle change">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+        <section class="sidebarLeft">
+          <div class="col-md-12">
+            <div class="header">
+              <h3>Nashville Historical Markers</h3>
+            </div>
+            <hr>
+            <form class="form-group">
+              <label>Filter By:</label>
+              <!-- knockout data-bind shows all types, sends back info to chosenType when one is selected, runs the renderMarkers function on click-->
+              <select data-bind="options: types, selectedOptions: chosenType, click: renderMarkers" class="form-control">
+              </select>
+            </form>
+            <!-- for loop on each sorted marker, it displays them in a list -->
+            <ul data-bind="foreach: chosenMarkers">
+              <!-- runs animateMarker when one of the options is clicked-->
+              <li data-bind="text: title, click: $parent.animateMarker"></li>
+            </ul>
+            <div class="footer">
+              <h4>Historical Marker information provided by Nashville.gov open data portal.</h4>
+            </div>
+          </div>
+        </section>
+        <section id="map" class="col-md-9 offset-3 map"></section>
+      </div>
+    </section>
+    <!-- Google Map initial rendering.-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_qA1ub01ymra9-1st2LMNG6tWFsgT2I&v=3&callback=initMap">
+    </script>
+        <script src="lib/knockout-3.2.0.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+
+  </body>
+</html>

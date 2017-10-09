@@ -1,0 +1,137 @@
+
+*{
+  -webkit-box-sizing: border-box;
+  -mox-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #007acc;
+}
+
+ul  {
+  list-style-type: none;
+  padding: 7px;
+  font-size: 1em;
+}
+
+li  {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ccebff;
+  color: black;
+}
+
+#map {
+  height: 100%;
+  position: absolute;
+  width: 75%;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#pano {
+  width: 300px;
+  height: 200px;
+}
+
+.container-fluid  {
+  height: 100%;
+  position: relative;
+}
+
+.header  {
+  background-color: black;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 35px;
+  border: 5px solid grey;
+}
+
+.sidebarLeft h3 {
+  margin-top: 15px;
+  color: white;
+  text-align: center;
+}
+
+.sidebarLeft {
+  width: 25%;
+  z-index: 1;
+  background-color: #007acc;
+  height: 100%;
+  color: white;
+}
+
+.footer {
+  text-align: center;
+}
+
+.title  {
+  font-weight: bold;
+  font-size: 1.25em;
+  max-width: 300px;
+}
+
+.windowBox  {
+  max-width: 300px;
+}
+
+.toggle {
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+@media only screen and (max-width: 430px) {
+  .sidebarLeft {
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    min-height: 100%;
+  }
+  #map  {
+    width: 100%;
+    margin-left: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+  }
+
+  .toggle {
+    display: inline-block;
+  }
+
+}
