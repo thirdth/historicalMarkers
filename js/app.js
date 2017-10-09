@@ -35,9 +35,10 @@ var locations = [
   {number: "152", title: "Jack Clement Recording Studio", location: {lat: 36.118659, lng: -86.796243}, type: "Music"}
 ];
 
-//Google Map related functions
-//function initializes the map, creates and renders the markers, and creates
-//and renders the infowindow with 3rd party API information (From Nashville.gov)
+// Google Map related functions --
+// functionality based on code from Udacity class on Google Maps APIs--
+// this function initializes the map, creates and renders the markers, creates
+// and renders the infowindow with 3rd party API info from Nashville.gov.
 function initMap()  {
   // Constructor creates a new map with a center on Nashville, TN.
   map = new google.maps.Map(document.getElementById('map'), {
