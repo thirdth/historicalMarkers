@@ -67,6 +67,7 @@ li  {
   background-color: #007acc;
   height: 100%;
   color: white;
+  overflow-y: auto;
 }
 
 .footer {
