@@ -222,6 +222,7 @@ var ViewModel = function()  {
 
 ko.applyBindings(new ViewModel());
 
+//Error Handling
 googleError = function()  {
   alert("An error has occured when loading your map");
 };
