@@ -10,30 +10,6 @@ var nashGovToken = 'U4sjKdpViz8YBaBIzSfPZiVg0';
 
 var largeInfoWindow;
 
-var locations = [
-  {number: "141", title: "RCA Studio B", location: {lat: 36.15013, lng: -86.793178}, type: "Music"},
-  {number: "20", title: "Ryman Auditorium", location: {lat: 36.161149, lng: -86.778818}, type: "Music"},
-  {number: "1", title: "Heaton's Station", location: {lat: 36.199949, lng: -86.78763}, type: "Pioneer Site"},
-  {number: "5", title: "Battle of Nashville - Shy's Hill", location: {lat: 36.088026, lng: -86.808237}, type: "Civil War Site"},
-  {number: "6", title: "Battle of Nashville - Stewart's Line", location: {lat: 36.086529, lng: -86.803815}, type: "Civil War Site"},
-  {number: "13", title: "Mrs. John Donelson", location: {lat: 36.296439, lng: -86.699898}, type: "Early Figure"},
-  {number: "37", title: "Battle of Nashville - Peach Orchard Hill", location: {lat: 36.08598333, lng: -86.76913333}, type: "Civil War Site"},
-  {number: "44", title: "Timothy Demonbruen", location: {lat: 36.161898, lng: -86.776215}, type: "Early Figure"},
-  {number: "53", title: "Frederic Stump 1724-1822", location: {lat: 36.232122, lng: -86.825096}, type: "Early Figure"},
-  {number: "58", title: "Fort Negley Site", location: {lat: 36.142835, lng: -86.775947}, type: "Early Figure"},
-  {number: "59", title: "Battle of Nashville - Federal Main Line", location: {lat: 36.087883, lng: -86.808257}, type: "Civil War Site"},
-  {number: "65", title: "General Thomas Overton", location: {lat: 36.264147, lng: -86.651195}, type: "Early Figure"},
-  {number: "72", title: "Mansker's First Fort", location: {lat: 36.327249, lng: -86.699673}, type: "Pioneer Site"},
-  {number: "89", title: "Battle of Nashville - Confederate Line", location: {lat: 36.113578, lng: -86.806106}, type: "Civil War Site"},
-  {number: "98", title: "Jackson's Law Office", location: {lat: 36.165176, lng: -86.779571}, type: "Early Figure"},
-  {number: "106", title: "Houston's Law Office", location: {lat: 36.168273, lng: -86.779056}, type: "Early Figure"},
-  {number: "126", title: "Battle of Nashville (December 16, 1864) - Assault on the Barricade", location: {lat: 36.050964, lng: -86.816416}, type: "Civil War Site"},
-  {number: "130", title: "Buchanan Log House", location: {lat: 36.144776, lng: -86.657683}, type: "Pioneer Site"},
-  {number: "134", title: "Battle of Nashville (December 16, 1864) - Confederate Final Stand", location: {lat: 36.077687, lng: -86.777135}, type: "Civil War Site"},
-  {number: "144", title: "BMI Broadcast Music", location: {lat: 36.150756, lng: -86.791786}, type: "Music"},
-  {number: "152", title: "Jack Clement Recording Studio", location: {lat: 36.118659, lng: -86.796243}, type: "Music"}
-];
-
 // Google Map related functions --
 // functionality based on code from Udacity class on Google Maps APIs--
 // this function initializes the map, creates and renders the markers, creates
