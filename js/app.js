@@ -112,7 +112,7 @@ function populateInfoWindow(marker, infowindow) {
                 "Accept": "*/*"},
       dataType: 'json',
       url: nashGovUrl,
-      data: {"number": infowindow.marker.number},
+      data: {"nuber": infowindow.marker.number},
       success: function(response) {
         // Save the relevant response of the request in a variable
         marker.content = response[0].marker_text;
@@ -153,9 +153,13 @@ function populateInfoWindow(marker, infowindow) {
 
       },
       error: function(err)  {
-        jsonResponse = err.responseJSON.message;
-        window.alert("An error occured retrieving your added information:  " +
-                      jsonResponse);
+        if (err.length != 0) {
+          jsonResponse = err.responseJSON.message;
+          window.alert("An error occured retrieving your added information:  " +
+                        jsonResponse);
+        } else {
+          window.alert("An error occured retreiving your added information.");
+        }
       }
     });
   }
@@ -222,7 +226,7 @@ var ViewModel = function()  {
 
 ko.applyBindings(new ViewModel());
 
-//Error Handling
+//Error Handlers
 googleError = function()  {
   alert("An error has occured when loading your map");
 };
