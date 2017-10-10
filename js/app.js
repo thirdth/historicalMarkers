@@ -221,3 +221,11 @@ var ViewModel = function()  {
 };
 
 ko.applyBindings(new ViewModel());
+
+googleError = function()  {
+  alert("An error has occured when loading your map");
+};
+
+window.addEventListener("error", function() {
+  alert("An error has occurred.");
+});
