@@ -50,6 +50,9 @@ function initMap()  {
     });
     // Create an onclick event to animate the marker
     marker.addListener("click", function() {
+      markers().forEach(function(marker) {
+        marker.setAnimation(null);
+      });
       this.setAnimation(google.maps.Animation.BOUNCE);
     });
   });
@@ -203,6 +206,8 @@ var ViewModel = function()  {
         } else {
           markers()[i].setAnimation(google.maps.Animation.BOUNCE);
         }
+      } else {
+        markers()[i].setAnimation(null);
       }
     }
     // Opens the infowindow of a marker when corresponding list item is chosen.
