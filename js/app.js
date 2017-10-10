@@ -112,7 +112,7 @@ function populateInfoWindow(marker, infowindow) {
                 "Accept": "*/*"},
       dataType: 'json',
       url: nashGovUrl,
-      data: {"nuber": infowindow.marker.number},
+      data: {"number": infowindow.marker.number},
       success: function(response) {
         // Save the relevant response of the request in a variable
         marker.content = response[0].marker_text;
@@ -153,7 +153,7 @@ function populateInfoWindow(marker, infowindow) {
 
       },
       error: function(err)  {
-        if (err.length != 0) {
+        if (err.length !== 0) {
           jsonResponse = err.responseJSON.message;
           window.alert("An error occured retrieving your added information:  " +
                         jsonResponse);
