@@ -168,6 +168,9 @@ function myFunction(x) {
 var ViewModel = function()  {
   var self = this;
 
+  // controls visibility of sidebarLeft element when in mobile
+  this.visibleSidebar = ko.observable(true);
+
   this.chosenType = ko.observable(['All']);
   // This is a computed observable of all the markers that match the "chosen"
   // type.
@@ -212,8 +215,11 @@ var ViewModel = function()  {
     populateInfoWindow(data, largeInfoWindow);
   };
 
+
   this.toggleMenu = function()  {
-    $( ".sidebarLeft" ).fadeToggle("slow", "linear");
+    // changes the value of the observable to the opposite of the current val
+    this.visibleSidebar(!this.visibleSidebar());
+    //animates the toggle button
     $( ".toggle" ).toggleClass('change');
   };
 };
