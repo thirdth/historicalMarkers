@@ -4,7 +4,7 @@ var markers = ko.observableArray([]);
 
 var types = ko.observableArray(['All', 'Music', 'Pioneer Site', 'Early Figure', 'Civil War Site']);
 
-var nashGovUrl = 'https://data.nashville.gov/resource/m4hn-ihe4.json';
+var nashGovUrl = 'https://data.na shville.gov/resource/m4hn-ihe4.json';
 
 var nashGovToken = 'U4sjKdpViz8YBaBIzSfPZiVg0';
 
@@ -152,14 +152,8 @@ function populateInfoWindow(marker, infowindow) {
         infowindow.open(map, marker);
 
       },
-      error: function(err)  {
-        if (err.length !== 0) {
-          jsonResponse = err.responseJSON.message;
-          window.alert("An error occured retrieving your added information:  " +
-                        jsonResponse);
-        } else {
-          window.alert("An error occured retreiving your added information.");
-        }
+      error: function(xhr, ajaxOptions, thrownError)  {
+        alert("An error has occurred retreiving the marker's information.");
       }
     });
   }
@@ -230,7 +224,3 @@ ko.applyBindings(new ViewModel());
 googleError = function()  {
   alert("An error has occured when loading your map");
 };
-
-window.addEventListener("error", function() {
-  alert("An error has occurred.");
-});
