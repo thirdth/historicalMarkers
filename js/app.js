@@ -4,7 +4,7 @@ var markers = ko.observableArray([]);
 
 var types = ko.observableArray(['All', 'Music', 'Pioneer Site', 'Early Figure', 'Civil War Site']);
 
-var nashGovUrl = 'https://data.na shville.gov/resource/m4hn-ihe4.json';
+var nashGovUrl = 'https://data.nashville.gov/resource/m4hn-ihe4.json';
 
 var nashGovToken = 'U4sjKdpViz8YBaBIzSfPZiVg0';
 
@@ -197,7 +197,7 @@ var ViewModel = function()  {
 
   // Makes the marker bounce when its corresponding list item is chosen
   this.animateMarker = function(data) {
-    for (i=0; i<markers().length; i++) {
+    for (i = 0, len = markers.length; i < len; i++) {
       if (data.number == markers()[i].number) {
         if (markers()[i].getAnimation() !== null) {
           markers()[i].setAnimation(null);
