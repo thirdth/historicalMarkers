@@ -40,7 +40,6 @@ function initMap()  {
       type: type,
       number: number,
       animation: google.maps.Animation.DROP,
-      id: i
     });
     // Push the marker to our array of markers.
     markers.push(marker);
@@ -178,20 +177,20 @@ var ViewModel = function()  {
     // Does not filter out any markers if "all" is selected (which is the
     // default).
     if (self.chosenType() == 'All') {
-      for (i=0; i<markers().length; i++) {
-        markers()[i].visible = true;
-      }
+      markers().forEach(function(marker)  {
+        marker.visible = true;
+      });
       return markers();
     } else { // Uses a for loop to cycle through all the markers
       this.newMarkers = ko.observableArray([]);
-      for (i=0; i < markers().length; i++) {
-        if (self.chosenType() == markers()[i].type) {
-          markers()[i].visible = true; // makes chosen marker visible
-          newMarkers.push(markers()[i]); // pushes chosen marker to new variable
+      markers().forEach(function(marker) {
+        if (self.chosenType() == marker.type) {
+          marker.visible = true; // makes chosen marker visible
+          newMarkers.push(marker); // pushes chosen marker to new variable
         } else {
-          markers()[i].visible = false; // makes unchosen markers invisible
+          marker.visible = false; // makes unchosen markers invisible
         }
-      }
+      });
       largeInfoWindow.close(); // Clears the infowindow for invisible markers
       return newMarkers();
     }
@@ -200,17 +199,17 @@ var ViewModel = function()  {
 
   // Makes the marker bounce when its corresponding list item is chosen
   this.animateMarker = function(data) {
-    for (i = 0, len = markers.length; i < len; i++) {
-      if (data.number == markers()[i].number) {
-        if (markers()[i].getAnimation() !== null) {
-          markers()[i].setAnimation(null);
+    markers().forEach(function(marker) {
+      if (data.number == marker.number) {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
         } else {
-          markers()[i].setAnimation(google.maps.Animation.BOUNCE);
+          marker.setAnimation(google.maps.Animation.BOUNCE);
         }
       } else {
-        markers()[i].setAnimation(null);
+        marker.setAnimation(null);
       }
-    }
+    });
     // Opens the infowindow of a marker when corresponding list item is chosen.
     populateInfoWindow(data, largeInfoWindow);
   };
