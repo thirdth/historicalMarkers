@@ -168,7 +168,7 @@ function myFunction(x) {
 var ViewModel = function()  {
   var self = this;
 
-  // controls visibility of sidebarLeft element when in mobile
+  // controls visibility and animation of sidebarLeft element in mobile
   this.visibleSidebar = ko.observable(true);
 
   this.chosenType = ko.observable(['All']);
@@ -217,10 +217,8 @@ var ViewModel = function()  {
 
 
   this.toggleMenu = function()  {
-    // changes the value of the observable to the opposite of the current val
+    // changes val of the observable to the opposite of the current val
     this.visibleSidebar(!this.visibleSidebar());
-    //animates the toggle button
-    $( ".toggle" ).toggleClass('change');
   };
 };
 
